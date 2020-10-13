@@ -22,19 +22,23 @@ public class Radio {
         return volume;
     }
 
-    void next() {
+    public void setStationNumber(int stationNumber) { this.stationNumber = stationNumber; }
+
+    public void setVolume(int volume) { this.volume = volume; }
+
+    public void next() {
         stationNumber = (stationNumber == MAX_STATION_NUMBER) ? MIN_STATION_NUMBER : (stationNumber += 1);
     }
 
-    void prev() {
+    public void prev() {
         stationNumber = (stationNumber == MIN_STATION_NUMBER) ? MAX_STATION_NUMBER : (stationNumber -= 1);
     }
 
-    void increaseVolume() {
+    public void increaseVolume() {
         volume = volume == MAX_VOLUME ? volume : (volume += 1);
     }
 
-    void decreaseVolume() {
+    public void decreaseVolume() {
         volume = volume == MIN_VOLUME ? volume : (volume -= 1);
     }
 
