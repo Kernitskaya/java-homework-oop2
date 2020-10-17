@@ -23,7 +23,7 @@ class RadioTest {
     static Stream<Arguments> argumentsNextStationProvider() {
         return Stream.of(
                 Arguments.of(8, 9),
-                Arguments.of(9, 0)
+                Arguments.of(10, 0)
         );
     }
 
@@ -38,7 +38,7 @@ class RadioTest {
     static Stream<Arguments> argumentsPrevStationProvider() {
         return Stream.of(
                 Arguments.of(1, 0),
-                Arguments.of(0, 9)
+                Arguments.of(0, 10)
         );
     }
 
@@ -53,7 +53,7 @@ class RadioTest {
     static Stream<Arguments> argumentsIncreaseVolumeProvider() {
         return Stream.of(
                 Arguments.of(9, 10),
-                Arguments.of(10, 10)
+                Arguments.of(100, 100)
         );
     }
 
@@ -69,6 +69,20 @@ class RadioTest {
         return Stream.of(
                 Arguments.of(1, 0),
                 Arguments.of(0, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("argumentsConstructorProvider")
+    void testConstructor(int stationNumber, int volume, int stationCount, int expectedResult) {
+        Radio radio = new Radio( stationNumber, volume, stationCount);
+        radio.next();
+        assertEquals(expectedResult, radio.getStationNumber());
+    }
+
+    static Stream<Arguments> argumentsConstructorProvider() {
+        return Stream.of(
+                Arguments.of(14, 0, 15, 15)
         );
     }
 
