@@ -1,17 +1,23 @@
 package ru.smarts;
 
 public class Radio {
-    static final int MAX_STATION_NUMBER = 9;
     static final int MIN_STATION_NUMBER = 0;
-    static final int MAX_VOLUME= 10;
-    static final int MIN_VOLUME= 0;
+    static final int MAX_VOLUME = 100;
+    static final int MIN_VOLUME = 0;
 
     private int stationNumber;
     private int volume;
+    private int stationCount = 10;
 
     public Radio(int stationNumber, int volume) {
         this.stationNumber = stationNumber;
         this.volume = volume;
+    }
+
+    public Radio(int stationNumber, int volume, int stationCount) {
+        this.stationNumber = stationNumber;
+        this.volume = volume;
+        this.stationCount = stationCount;
     }
 
     public int getStationNumber() {
@@ -22,16 +28,20 @@ public class Radio {
         return volume;
     }
 
-    public void setStationNumber(int stationNumber) { this.stationNumber = stationNumber; }
+    public void setStationNumber(int stationNumber) {
+        this.stationNumber = stationNumber;
+    }
 
-    public void setVolume(int volume) { this.volume = volume; }
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }
 
     public void next() {
-        stationNumber = (stationNumber == MAX_STATION_NUMBER) ? MIN_STATION_NUMBER : (stationNumber += 1);
+        stationNumber = (stationNumber == stationCount) ? MIN_STATION_NUMBER : (stationNumber += 1);
     }
 
     public void prev() {
-        stationNumber = (stationNumber == MIN_STATION_NUMBER) ? MAX_STATION_NUMBER : (stationNumber -= 1);
+        stationNumber = (stationNumber == MIN_STATION_NUMBER) ? stationCount : (stationNumber -= 1);
     }
 
     public void increaseVolume() {
