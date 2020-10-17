@@ -1,17 +1,20 @@
 package ru.smarts;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @AllArgsConstructor
-@Data
 public class Radio {
     static final int MIN_STATION_NUMBER = 0;
     static final int MAX_VOLUME = 100;
     static final int MIN_VOLUME = 0;
 
+    @Getter @Setter
     private int stationNumber;
+    @Getter @Setter
     private int volume;
+    @Getter @Setter
     private int stationCount = 10;
 
     public Radio(int stationNumber, int volume) {
