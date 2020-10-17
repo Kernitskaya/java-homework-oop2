@@ -1,5 +1,10 @@
 package ru.smarts;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@AllArgsConstructor
+@Data
 public class Radio {
     static final int MIN_STATION_NUMBER = 0;
     static final int MAX_VOLUME = 100;
@@ -11,28 +16,6 @@ public class Radio {
 
     public Radio(int stationNumber, int volume) {
         this.stationNumber = stationNumber;
-        this.volume = volume;
-    }
-
-    public Radio(int stationNumber, int volume, int stationCount) {
-        this.stationNumber = stationNumber;
-        this.volume = volume;
-        this.stationCount = stationCount;
-    }
-
-    public int getStationNumber() {
-        return stationNumber;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setStationNumber(int stationNumber) {
-        this.stationNumber = stationNumber;
-    }
-
-    public void setVolume(int volume) {
         this.volume = volume;
     }
 
